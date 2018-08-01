@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Airpnp</title>
+	<link rel="stylesheet" href="http://localhost:3000/app.css" />
+	<link rel="stylesheet" href="http://localhost:3001/styles.css" />
+	<link rel="stylesheet" href="http://localhost:3003/styles.css" />
+	<link rel="stylesheet" href="http://localhost:3002/app.css" />
+	<style>
+		#listing-body {
+			justify-content: center;
+		}
+		#app {
+			width: 680px;
+		}
+
+	</style>
+</head>
+<body>
+	<div>
+		<div id="hero"></div>
+		<div id="gallery"></div>
+		<div id="listing-body" class="row">
+			<div>
+				<div id="reviews"></div>
+				<div id="app"></div>
+			</div>
+			<div id="reservation"></div>
+		</div>
+	</div>
+	<script src="/lib/react.development.js"></script>
+  <script src="/lib/react-dom.development.js"></script>
+  <script src="http://localhost:3000/bundle.js"></script>
+  <script src="http://localhost:3001/app.js"></script>
+  <script src="http://localhost:3003/bundle.js"></script>
+  <script src="http://localhost:3002/app.js"></script>
+	<script type="text/javascript">
+	  ReactDOM.render(
+      ReactDOM.createElement(Hero),
+      document.getElementById('hero')
+    );
+    ReactDOM.render(
+      React.createElement(Reviews, {listing_id: 52}, null),
+      document.getElementById('reviews')
+    );
+    ReactDOM.render(
+      React.createElement(App, {id:'86', listingId:'56', API_KEY:'GOOGLE_MAP_KEY'}),
+      document.getElementById('app')
+    );
+    ReactDOM.render(
+      React.createElement(Reservation),
+      document.getElementById('reservation')
+    );
+	</script>
+</body>
+</html>

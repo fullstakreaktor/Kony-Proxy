@@ -1,0 +1,20 @@
+{
+  "name": "proxy",
+  "version": "1.0.0",
+  "description": "integrating airpnp components",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-connect-proxy": "^0.2.0",
+    "grunt-contrib-connect": "^1.0.2"
+  }
+}
