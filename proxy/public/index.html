@@ -5,7 +5,7 @@
 	<title>Airpnp</title>
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="http://52.49.157.131:3000/app.css" />
-	<link rel="stylesheet" href="http://localhost:3001/styles.css" />
+	<link rel="stylesheet" href="http://18.222.196.193:3001/styles.css" />
 	<link rel="stylesheet" href="http://35.163.43.209:80/styles.css" />
 	<link rel="stylesheet" href="http://18.222.240.125:3002/app.css" />
 	<style>
@@ -31,7 +31,7 @@
 		<div id="listing-body" class="row">
 			<div>
 				<div id="reviews"></div>
-				<div id="app"></div>
+				<div id="about"></div>
 			</div>
 			<div id="reservation"></div>
 		</div>
@@ -39,7 +39,7 @@
 	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script src="http://52.49.157.131:3000/bundle.js"></script>
-  <script src="http://localhost:3001/app.js"></script>
+  <script src="http://18.222.196.193:3001/app.js"></script>
   <script src="http://35.163.43.209:80/bundle.js"></script>
   <script src="http://18.222.240.125:3002/app.js"></script>
 	<script type="text/javascript">
@@ -52,7 +52,11 @@
       document.getElementById('reservation')
     );
     ReactDOM.render(
-    	React.createElement(Reviews, {listing_id: 1}),
+    	React.createElement(About, {id: 1, listingId: 1}), 
+    	document.getElementById('about')
+    );
+    ReactDOM.render(
+    	React.createElement(Review, {listing_id: 1}),
     	document.getElementById('reviews'))
 	</script>
 </body>
