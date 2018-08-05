@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Airpnp</title>
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
-	<link rel="stylesheet" href="http://localhost:3000/app.css" />
+	<link rel="stylesheet" href="http://52.49.157.131:3000/app.css" />
 	<link rel="stylesheet" href="http://localhost:3001/styles.css" />
-	<link rel="stylesheet" href="http://localhost:3003/styles.css" />
-	<link rel="stylesheet" href="http://localhost:3002/app.css" />
+	<link rel="stylesheet" href="http://35.163.43.209:80/styles.css" />
+	<link rel="stylesheet" href="http://18.222.240.125:3002/app.css" />
 	<style>
 		body {
 			font-family: 'Nunito Sans', sans-serif;
@@ -36,29 +36,24 @@
 			<div id="reservation"></div>
 		</div>
 	</div>
-	<script src="/lib/react.development.js"></script>
-  <script src="/lib/react-dom.development.js"></script>
-  <script src="http://localhost:3000/bundle.js"></script>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="http://52.49.157.131:3000/bundle.js"></script>
   <script src="http://localhost:3001/app.js"></script>
-  <script src="http://localhost:3003/bundle.js"></script>
-  <script src="http://localhost:3002/app.js"></script>
+  <script src="http://35.163.43.209:80/bundle.js"></script>
+  <script src="http://18.222.240.125:3002/app.js"></script>
 	<script type="text/javascript">
-	  ReactDOM.render(
-      ReactDOM.createElement(Hero),
+		ReactDOM.render(
+      React.createElement(Hero, {listingId: 1}),
       document.getElementById('hero')
     );
     ReactDOM.render(
-      React.createElement(Reviews, {listing_id: 52}, null),
-      document.getElementById('reviews')
-    );
-    ReactDOM.render(
-      React.createElement(App, {id:'86', listingId:'56', API_KEY:'GOOGLE_MAP_KEY'}),
-      document.getElementById('app')
-    );
-    ReactDOM.render(
-      React.createElement(Reservation),
+      React.createElement(ReservationBox, {listingId: 1}),
       document.getElementById('reservation')
     );
+    ReactDOM.render(
+    	React.createElement(Reviews, {listing_id: 1}),
+    	document.getElementById('reviews'))
 	</script>
 </body>
 </html>

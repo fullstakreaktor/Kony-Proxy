@@ -59,7 +59,6 @@ class Save extends React.Component {
 
   handleListNameChange(e) {
   	this.setState({ newListName: e.target.value });
-  	// console.log(e.target.value);
   }
 
   cancel() {
@@ -72,7 +71,6 @@ class Save extends React.Component {
   		list_name: this.state.newListName,
   	  })
   	.then((response) => {
-  		console.log(response);
   		this.props.onClick(3);
   		this.setState({ showCreateNewListMessage: true });
   	    this.setState({ showNewListInfo: false });
@@ -95,7 +93,6 @@ class Save extends React.Component {
   		// This is liked, must now remove
   		axios.delete(`hero_service/listings/${this.state.listingId}/lists/${listId}`)
   		.then((response) => {
-  			console.log(response);
   			// this.getListsOfListing();
   			this.props.onClick(2);
   		})
@@ -106,7 +103,6 @@ class Save extends React.Component {
   		// This is not liked, must now add
   		axios.post(`hero_service/listings/${this.state.listingId}/lists/${listId}`)
   		.then((response) => {
-  			console.log(response);
   			this.props.onClick(2);
   		})
   		.catch((error) => {
@@ -208,7 +204,7 @@ Create
       topPart = (
         <div styleName="top-part-container">
           <div styleName="xbutton-container">
-            <img styleName="xbutton" onClick={() => { this.props.onClick(1); }} src="./blackx.png" />
+            <img styleName="xbutton" onClick={() => { this.props.onClick(1); }} src="https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/blackx.png" />
           </div>
 
           <div styleName="title-container">
@@ -251,7 +247,7 @@ Save to list
       topPart = null;
       dropSymbol = (
         <div onClick={this.handleShowTopPart.bind(this)}>
-          <img styleName="footer-drop-symbol" src="./drop.png" />
+          <img styleName="footer-drop-symbol" src="https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/drop.png" />
         </div>
       );
     }
@@ -276,7 +272,7 @@ Save to list
               </div>
 
               <div styleName="bottom-description-text">
-              {this.state.details.listing_space_description}
+                {this.state.details.listing_space_description}
               </div>
             </div>
 
@@ -286,7 +282,7 @@ Save to list
               </div>
 
               <div styleName="bottom-description-text">
-              {this.state.details.listing_neighborhood_description}
+                {this.state.details.listing_neighborhood_description}
               </div>
             </div>
           </div>
@@ -331,9 +327,9 @@ Save to list
                   {
 		               this.state.ratings.map((rating) => {
 		               	if (rating === 1) {
-		               		return <img styleName="paw" src="./full.png" />;
+		               		return <img styleName="paw" src="https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/full.png" />;
 		               	} if (rating === 0) {
-		               		return <img styleName="paw" src="./grey.png" />;
+		               		return <img styleName="paw" src="https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/grey.png" />;
 		               	}
 		               })
 		             }

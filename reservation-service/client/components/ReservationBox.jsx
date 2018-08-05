@@ -17,7 +17,7 @@ class ReservationBox extends React.Component {
   }
 
   getListingInfo() {
-    let url = `/api/listings/${this.props.listingId}`;
+    let url = `/api/reservation/listings/${this.props.listingId}`;
     fetch(url)
     .then(res => res.json())
     .then((res) => this.setListingDetails(res))
@@ -78,4 +78,4 @@ class ReservationBox extends React.Component {
   }
 }
 
-export default ReservationBox;
+window.ReservationBox = ReservationBox;

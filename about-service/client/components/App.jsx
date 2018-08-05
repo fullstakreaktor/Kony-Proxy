@@ -12,8 +12,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(props.API_KEY)
-
     this.state = {
       id: +props.id,
       listingId: +props.listingId,
@@ -22,8 +20,7 @@ class App extends React.Component {
       joinYear: '',
       numsOfReviews: 0,
       reviewWording: 'reviews',
-      neighborhoodInfo: {},
-      apiKey: props.API_KEY,
+      neighborhoodInfo: {}
     };
 
     this.verifiedOrNot = this.verifiedOrNot.bind(this);
@@ -40,7 +37,7 @@ class App extends React.Component {
   getHostInfo() {
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    $.get(`/about_service/hosts/${this.state.id}`, (data) => {
+    $.get(`/api/about/hosts/${this.state.id}`, (data) => {
       this.setState({ host: JSON.parse(data)[0] });
       this.setState({ joinMonth: monthNames[Number(this.state.host.joined_in_date.split('-')[1]) - 1] });
       this.setState({ joinYear: this.state.host.joined_in_date.split('-')[0] });
@@ -48,13 +45,13 @@ class App extends React.Component {
   }
 
   getReviewInfo() {
-    $.get(`/about_service/reviews/${this.state.id}`, (data) => {
+    $.get(`/api/about/reviews/${this.state.id}`, (data) => {
       this.setState({ numsOfReviews: data });
     });
   }
 
   getNeighborhoodInfo() {
-    $.get(`/about_service/neighborhood/${this.state.listingId}`, (data) => {
+    $.get(`/api/about/neighborhood/${this.state.listingId}`, (data) => {
       this.setState({ neighborhoodInfo: JSON.parse(data)[0] });
     });
   }
@@ -86,7 +83,7 @@ class App extends React.Component {
 
         <HostDescription host={this.state.host} responseTimeConvertor={this.responseTimeConvertor} />
         <ContactAirbnb />
-        <Neighborhood neighborhoodInfo={this.state.neighborhoodInfo} lat={this.state.neighborhoodInfo.lat_location}lng={this.state.neighborhoodInfo.lon_location} zoom='11' apiKey={this.state.apiKey}/>
+        <Neighborhood neighborhoodInfo={this.state.neighborhoodInfo} lat={this.state.neighborhoodInfo.lat_location}lng={this.state.neighborhoodInfo.lon_location} zoom='11' />
       </div>
     );
   }

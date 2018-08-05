@@ -19,7 +19,7 @@ const Neighborhood = (props) => {
         <span styleName='boldingWords'>Things to do · </span>
         <span>{props.neighborhoodInfo.things_to_do}</span>
       </p>
-      <GoogleMap location={location} zoom='11' apiKey={props.apiKey}/>
+      <GoogleMap location={location} zoom='11'/>
     </div>
   );
 };
