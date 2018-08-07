@@ -3,61 +3,40 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Airpnp</title>
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
-	<link rel="stylesheet" href="http://52.49.157.131:3000/app.css" />
-	<link rel="stylesheet" href="http://18.222.196.193:3001/styles.css" />
-	<link rel="stylesheet" href="http://35.163.43.209:80/styles.css" />
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="lib/react.production.min.js"></script>
+	<script src="lib/react-dom.production.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="http://52.49.157.131:3000/app.css" />
+ 	<link rel="stylesheet" href="http://35.163.43.209:80/styles.css" />
 	<link rel="stylesheet" href="http://18.222.240.125:3002/app.css" />
-	<style>
-		body {
-			font-family: 'Nunito Sans', sans-serif;
-			color: #6f7678;
-		}
-
-		#listing-body {
-			justify-content: center;
-		}
-
-		#app {
-			width: 680px;
-		}
-
-	</style>
+	<link rel="stylesheet" href="http://18.222.196.193:3001/styles.css" />
+	<link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 	<div>
-		<div id="hero"></div>
+		<div id="hero" >
+			<img id="placeholder-hero" src="airpnp-banner.png">
+		</div>
 		<div id="gallery"></div>
-		<div id="listing-body" class="row">
-			<div>
+		<div id="container">
+			<div id="listing-body">
+				<img id="listing-details" src="listing_details.png">
 				<div id="reviews"></div>
 				<div id="about"></div>
 			</div>
-			<div id="reservation"></div>
+			<div id="footer">
+				<img src="similar_listings.png">
+			</div>
 		</div>
+		<div id="sidebar">
+			<div id="reservation"></div>
+		</div>	
 	</div>
-	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <script src="http://52.49.157.131:3000/bundle.js"></script>
-  <script src="http://18.222.196.193:3001/app.js"></script>
+	<script src="http://52.49.157.131:3000/bundle.js"></script>
   <script src="http://35.163.43.209:80/bundle.js"></script>
   <script src="http://18.222.240.125:3002/app.js"></script>
-	<script type="text/javascript">
-		ReactDOM.render(
-      React.createElement(Hero, {listingId: 1}),
-      document.getElementById('hero')
-    );
-    ReactDOM.render(
-      React.createElement(ReservationBox, {listingId: 1}),
-      document.getElementById('reservation')
-    );
-    ReactDOM.render(
-    	React.createElement(About, {id: 1, listingId: 1}), 
-    	document.getElementById('about')
-    );
-    ReactDOM.render(
-    	React.createElement(Review, {listing_id: 1}),
-    	document.getElementById('reviews'))
-	</script>
+  <script src="http://18.221.191.101:3001/app.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>

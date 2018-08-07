@@ -16,7 +16,10 @@ const heroProxy = proxy('/api/hero', {
 })
 
 const reviewsProxy = proxy ('/api/reviews', {
-	target: 'http://18.222.28.105:3002'
+	target: 'http://18.222.240.125:3002'
+})
+const aboutProxy = proxy ('/api/about', {
+	target: 'http://18.222.196.193:3001'
 })
 
 app.listen(PORT, () => console.log("Listening to port " + PORT));
@@ -25,13 +28,4 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(reservationProxy);
 app.use(heroProxy);
 app.use(reviewsProxy);
-
-// app.get('/api/reservation', (req, res) => {
-// 	let reservationURL = 'http://35.163.43.209:80' + req.url;
-// 	request(reservationURL).pipe(res);
-// })
-
-// app.get('/api/hero', (req, res) => {
-// 	let heroURL = 'http://52.49.157.131:3000' + req.url;
-// 	request(heroURL).pipe(res);
-// })
+app.use(aboutProxy);
