@@ -20,9 +20,8 @@ describe('Query to get listings photos (getListingPhotos)', () => { // must make
 });
 
 describe('Query to get lists (getLists)', () => { // must make this an async function so that "await" may work
-
   test('Each element of the output array should be an object with 3 properties', (done) => {
-     Queries.getLists(2, (err, listingPhotos) => {
+    Queries.getLists(2, (err, listingPhotos) => {
       expect(listingPhotos[0]).toHaveProperty('id');
       expect(listingPhotos[0]).toHaveProperty('list_name');
       expect(listingPhotos[0]).toHaveProperty('list_user_id');
@@ -33,9 +32,8 @@ describe('Query to get lists (getLists)', () => { // must make this an async fun
 
 
 describe('Query to addList (addList)', () => { // must make this an async function so that "await" may work
-
   test('Should add to the list table, thus no error', (done) => {
-     Queries.addList(2, 'My New List',  (err, result) => {
+    Queries.addList(2, 'My New List', (err, result) => {
       expect(err).toBe(null);
       done();
     });
@@ -44,9 +42,8 @@ describe('Query to addList (addList)', () => { // must make this an async functi
 
 
 describe('Query to get list of listings', () => { // must make this an async function so that "await" may work
-
   test('Each element of the output array should be an object with 2 properties', (done) => {
-     Queries.getListsOfListing(2, (err, listingPhotos) => {
+    Queries.getListsOfListing(2, (err, listingPhotos) => {
       expect(listingPhotos[0]).toHaveProperty('listing_id');
       expect(listingPhotos[0]).toHaveProperty('list_id');
       done();
@@ -55,9 +52,8 @@ describe('Query to get list of listings', () => { // must make this an async fun
 });
 
 describe('Query to add to favorites ', () => { // must make this an async function so that "await" may work
-
   test('Should add to the listings_lists table, thus no error', (done) => {
-     Queries.addToFavorite(2, 3,  (err, result) => {
+    Queries.addToFavorite(2, 3, (err, result) => {
       expect(err).toBe(null);
       done();
     });
@@ -66,9 +62,8 @@ describe('Query to add to favorites ', () => { // must make this an async functi
 
 
 describe('Query to remove from favorites ', () => { // must make this an async function so that "await" may work
-
   test('Should remove from the listings_lists table, thus no error', (done) => {
-     Queries.removeFromFavorite(2, 3,  (err, result) => {
+    Queries.removeFromFavorite(2, 3, (err, result) => {
       expect(err).toBe(null);
       done();
     });
@@ -76,9 +71,8 @@ describe('Query to remove from favorites ', () => { // must make this an async f
 });
 
 describe('Query to get listing details', () => { // must make this an async function so that "await" may work
-
   test('Each element of the output array should be an object with 9 properties', (done) => {
-     Queries.getListingDetails(2, (err, listingPhotos) => {
+    Queries.getListingDetails(2, (err, listingPhotos) => {
       expect(listingPhotos[0]).toHaveProperty('id');
       expect(listingPhotos[0]).toHaveProperty('listing_review_average');
       expect(listingPhotos[0]).toHaveProperty('listing_review_total');
@@ -92,5 +86,3 @@ describe('Query to get listing details', () => { // must make this an async func
     });
   });
 });
-
-

@@ -20,9 +20,9 @@ class Hero extends React.Component {
       savebuttonSymbol: '',
       saveButtonText: '',
       numberOfFav: 0,
-      userId: 21,
+      userId: 25,
       lists: [],
-      listingId: 21,
+      listingId: 25,
       favoriteLists: [],
       favoriteListsObj: {},
       details: {},
@@ -59,15 +59,12 @@ class Hero extends React.Component {
   }
 
   handleShowSave() {
-  	console.log('number of favs ', this.state.numberOfFav);
   	if (this.state.numberOfFav === 0 || this.state.numberOfFav > 1) {
   	 this.setState({ showSaveModal: true });
   	} else if (this.state.numberOfFav === 1) {
   		const listId = Object.keys(this.state.favoriteListsObj)[0]; // the one and only current favorite
-  		axios.delete(`/listings/${this.state.listingId}/lists/${listId}`)
+  		axios.delete(`/hero_service/listings/${this.state.listingId}/lists/${listId}`)
   		.then((response) => {
-  			console.log(response);
-
   			this.getListsOfListing();
   		})
   		.catch((error) => {
@@ -105,7 +102,6 @@ class Hero extends React.Component {
   getListsOfListing() {
   	axios.get(`hero_service/listings/${this.state.listingId}/lists`)
   	  .then((response) => {
-  	  	console.log('....', response.data);
   	  	this.setState({ favoriteLists: response.data });
 
   	  	this.getLists();
@@ -118,7 +114,6 @@ class Hero extends React.Component {
   getLists() {
     axios.get(`hero_service/users/${this.state.userId}/list`)
       .then((response) => {
-      	console.log('Lists data: ', response.data);
 
       	const tempLists = response.data;
       	let isAtLeastOneList = false;
@@ -136,13 +131,13 @@ class Hero extends React.Component {
 
   	  	if (isAtLeastOneList === true) {
   	  		this.setState({ saveButtonText: 'Saved' }, () => {
-  	  			this.setState({ savebuttonSymbol: './pinkheart.png' }, () => {
+  	  			this.setState({ savebuttonSymbol: 'https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/pinkheart.png' }, () => {
   	  				this.setState({ saveStatus: true });
   	  			});
   	  		});
   	  	} else {
   	  		this.setState({ saveButtonText: 'Save' }, () => {
-  	  			this.setState({ savebuttonSymbol: './savesymbol.png' }, () => {
+  	  			this.setState({ savebuttonSymbol: 'https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/savesymbol.png' }, () => {
   	  				this.setState({ saveStatus: false });
   	  			});
   	  		});
@@ -154,9 +149,9 @@ class Hero extends React.Component {
   	  	for (let i = 0; i < tempLists.length; i++) {
   	  		const dd = tempLists[i].id;
   	  		if (objectOfFavLists[tempLists[i].id]) {
-  	  			tempLists[i].icon = './pinkheart.png';
+  	  			tempLists[i].icon = 'https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/pinkheart.png';
   	  		} else {
-  	  			tempLists[i].icon = './savesymbol.png';
+  	  			tempLists[i].icon = 'https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/savesymbol.png';
   	  		}
   	  	}
 
@@ -172,7 +167,6 @@ class Hero extends React.Component {
       .then((response) => {
         this.setState({ details: response.data[0] }, () => {
           // this.setReviewArray();
-          console.log('the details', this.state.details);
         });
       })
       .catch((error) => {
@@ -224,7 +218,7 @@ View Photos
         {modal}
         <div styleName="hero-top-right-buttons">
           <button styleName="hero-share-button" onClick={this.handleShowShare}>
-            <img styleName="hero-button-image" src="./sharesymbol.png" />
+            <img styleName="hero-button-image" src="https://s3-us-west-1.amazonaws.com/hackreactor-fec-hero/static-assets/sharesymbol.png" />
               Share
           </button>
           <button styleName="hero-save-button" onClick={this.handleShowSave}>

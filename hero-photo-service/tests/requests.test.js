@@ -60,6 +60,5 @@ describe('Request to get listing details for a listing', () => {
     expect(JSON.parse(response.text)[0]).toHaveProperty('listing_description');
     expect(JSON.parse(response.text)[0]).toHaveProperty('listing_space_description');
     expect(JSON.parse(response.text)[0]).toHaveProperty('listing_neighborhood_description');
-
   }));
 });
